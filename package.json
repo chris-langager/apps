@@ -1,0 +1,23 @@
+{
+  "name": "apps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-client": "(cd ./client && npm run build)",
+    "build-server": "(cd ./server && npm run build)",
+    "build": "npm run build-client && npm run build-server",
+    "run": "(cd ./server && npm run run)"
+  },
+  "repository": {
+    "type": "c",
+    "url": "git+https://github.com/chris-langager/apps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chris-langager/apps/issues"
+  },
+  "homepage": "https://github.com/chris-langager/apps#readme"
+}
