@@ -2,6 +2,7 @@ import express from 'express';
 
 import { ENV } from './env';
 
+console.log('starting up!', { ENV });
 const app = express();
 const port = parseInt(ENV.PORT);
 
