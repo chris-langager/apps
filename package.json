@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "yarn --cwd ./client --production=false install && yarn --cwd ./server --production=false install",
+    "postinstall": "npm install --production=false --prefix ./client && npm install --production=false --prefix ./server",
     "build-client": "(cd ./client && npm run build)",
     "build-server": "(cd ./server && npm run build)",
     "build": "npm run build-client && npm run build-server",
