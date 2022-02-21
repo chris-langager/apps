@@ -1,15 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import { User, UserContext, UserProvider } from './UserContext';
 
-function App() {
-  const [message, setMessage] = useState("");
+import { UserInfo } from './UserInfo';
+
+export function App() {
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch("/api/message")
+    fetch('/api/message')
       .then((res) => res.json())
       .then(({ message }) => setMessage(message));
   }, []);
 
-  return <div className="App">{message}</div>;
-}
+  return (
+    <div className="App">
+      <UserProvider>
+        <UserInfo />
 
-export default App;
+        {message}
+      </UserProvider>
+    </div>
+  );
+}

@@ -1,0 +1,2 @@
+event sourcing bummers:
+- trying to make a unique constraint on user usernames
