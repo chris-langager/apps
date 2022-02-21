@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/chris-langager/apps#readme",
   "devDependencies": {
+    "@types/uuid": "^8.3.4",
     "typescript": "^4.5.5",
     "vite": "^2.8.4"
   }

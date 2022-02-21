@@ -5,10 +5,12 @@ export interface User {
   username: string;
 }
 
-export const UserContext = React.createContext<{ user: User | null; setUser: (user: User) => void }>({
-  user: null,
-  setUser: () => {},
-});
+export const UserContext = React.createContext<{ user: User | undefined | null; setUser: (user: User | null) => void }>(
+  {
+    user: undefined, //undefined means we don't know about user info yet, null will be if they are for sure not logged in
+    setUser: () => {},
+  }
+);
 
 export const UserProvider: React.FC = (props) => {
   const [user, setUser] = useState<User | null>(null);
@@ -16,7 +18,7 @@ export const UserProvider: React.FC = (props) => {
   useEffect(() => {
     fetch('/api/self')
       .then((res) => res.json())
-      .then(setUser);
+      .then(({ user }) => setUser(user));
   }, []);
 
   return <UserContext.Provider value={{ user, setUser }}>{props.children}</UserContext.Provider>;

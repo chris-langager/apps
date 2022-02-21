@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { User, UserContext, UserProvider } from './UserContext';
+import { UserProvider } from './UserContext';
 
 import { UserInfo } from './UserInfo';
 

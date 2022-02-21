@@ -8,12 +8,13 @@ export interface Input {
   aggregateIds?: string[];
 }
 
+//TODO: turn into a generator
 export async function listEvents<T extends Event>(input: Input = {}): Promise<T[]> {
   const [conditionalsSQL, args] = buildWhereClause(input);
 
   const query = `
   SELECT *
-  FROM users
+  FROM events
   ${conditionalsSQL}
   ORDER BY id ASC
   LIMIT 2000;`;
@@ -30,7 +31,7 @@ function buildWhereClause(input: Input): [string, object] {
   }
 
   if (input.aggregateTypes) {
-    conditionals.push(`aggregate_types in ($(aggregateTypes:csv))`);
+    conditionals.push(`aggregate_type in ($(aggregateTypes:csv))`);
   }
 
   if (input.aggregateIds) {

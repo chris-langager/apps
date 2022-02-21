@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS events (
-  id SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY NOT NULL,
   date_created TIMESTAMP WITH TIME ZONE DEFAULT (now() at time zone 'utc'),
   type TEXT NOT NULL,
   aggregate_type TEXT NOT NULL,
